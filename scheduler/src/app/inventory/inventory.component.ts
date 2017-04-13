@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InventoryService} from './inventory.service';
-// declare var firebase:any;
+declare var firebase:any;
+
 
 @Component({
   selector: 'app-inventory',
@@ -9,37 +10,32 @@ import { InventoryService} from './inventory.service';
   providers: [InventoryService]
 })
 export class InventoryComponent implements OnInit {
-
   parts = [];
 
-  isLoading = true; //add loader icon
+  // isLoading = true; //add loader icon
 
-  constructor(private inventoryService: InventoryService) { }
+  constructor(private inventoryService: InventoryService){}
 
   ngOnInit() {
+   //
+   // this.inventoryService.getPart().subscribe(
+   //   (part) => this.parts = part,
+   //    null,
+   //    () => { this.isLoading = false; }
+   // );
 
-   this.inventoryService.getPart().subscribe(
-     (part) => this.parts = part,
-      null,
-      () => { this.isLoading = false; }
-   );
+   this.fbGetData();
+  }
 
 
-
-   // this.fbGetData();
-
+  fbGetData(){
+   firebase.database().ref('/inventory/part').on(
+    'child_added',
+    (snapshot) =>{this.parts.push(snapshot.val())},
+   
+   )
 
 
   }
-
-  // fbGetData(){
-  //  firebase.database().ref('/inventory/part').on(
-  //   'child_added',
-  //   (snapshot) =>{this.parts.push(snapshot.val())},
-  //   () => { this.isLoading = false; }
-  //  )
-  //
-  //
-  // }
 
 }

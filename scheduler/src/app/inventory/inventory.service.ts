@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+declare var firebase:any;
+
+
 
 @Injectable()
 export class InventoryService {
-
+part:any;
   constructor(private http: Http) { }
 
   getPart(){
@@ -11,6 +14,10 @@ export class InventoryService {
     (res) => res.json()
    );
 
+  }
+
+  fbPostData(part){
+   firebase.database().ref('/inventory/part').push(part);
   }
 
 }

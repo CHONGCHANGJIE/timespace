@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -12,6 +12,7 @@ import { MachinesComponent } from './machines/machines.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import 'rxjs/add/operator/map';
+import { InventoryFormComponent } from './inventory/inventory-form/inventory-form.component';
 
 @NgModule({
   declarations: [
@@ -21,11 +22,13 @@ import 'rxjs/add/operator/map';
     MachinesComponent,
     JobsComponent,
     InventoryComponent,
+    InventoryFormComponent,
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot([]),
     AppRoutes
