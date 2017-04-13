@@ -11,6 +11,7 @@ import { RouterModule} from '@angular/router';
 import { MachinesComponent } from './machines/machines.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { InventoryComponent } from './inventory/inventory.component';
+import 'rxjs/add/operator/map';
 
 @NgModule({
   declarations: [

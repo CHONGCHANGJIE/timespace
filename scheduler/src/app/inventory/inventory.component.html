@@ -1,3 +1,32 @@
+
 <p>
-  inventory works!
+Inventory
+<button class="fa fa-plus-square fa-2x add-btn" aria-hidden="true"></button>
 </p>
+<br>
+
+
+<!-- add loader icon -->
+<i *ngIf="isLoading" class="fa fa-cog fa-spin fa-3x"></i>
+<i *ngIf="isLoading" class="fa fa-cog fa-spin fa-3x"></i>
+<i *ngIf="isLoading" class="fa fa-cog fa-spin fa-3x"></i>
+<i *ngIf="isLoading" class="fa fa-cog fa-spin fa-3x"></i>
+<i *ngIf="isLoading" class="fa fa-cog fa-spin fa-3x"></i>
+<!-- add loader icon -->
+
+
+
+<div *ngIf="!isLoading">
+<div class="btn-group inventory"  *ngFor="let part of parts">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   <div class="part">{{ part.name }}</div><div class="qty">{{ part.quantity }}</div><span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
+</div>

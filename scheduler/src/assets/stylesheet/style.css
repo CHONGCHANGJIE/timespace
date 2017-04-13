@@ -1,5 +1,45 @@
 
-a i.fa.fa-user-o:hover{
+.inventory{
 
- font-size: 1.1em;
+width: auto;
+padding-left: 5px;
+padding-bottom: 5px;
+
+}
+
+.qty{
+
+ width auto;
+ background-color: green;
+ border-radius: 5px;
+ padding: 5px;
+ font-family: fantasy;
+ opacity: 0.85;
+ border-style: double;
+}
+
+
+.part{
+
+ width auto;
+ background-color: yellow;
+ border-radius: 5px;
+ padding: 5px;
+ font-family: fantasy;
+ opacity: 0.85;
+ border-style: double;
+
+}
+
+.add-btn{
+
+ float: right;
+ background: transparent;
+ border: 0;
+ -webkit-appearance: none;
+}
+
+.fa.fa-plus-square.fa-2x:hover{
+
+font-size: 40px;
 }
