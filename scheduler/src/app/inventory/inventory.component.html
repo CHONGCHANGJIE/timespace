@@ -1,0 +1,51 @@
+
+<div class="dropdown" style= "float:right">
+ <button class="btn btn-default dropdown-toggle"
+         type="button"
+         id="dropdownMenu1"
+         data-toggle="dropdown"
+         aria-haspopup="true" aria-expanded="true">
+  <span class="fa fa-plus-square fa-2x"></span>
+ </button>
+
+ <div  id="add-part"
+      class="dropdown-menu dropdown-menu-right"
+      aria-labelledby="dropdownMenu1">
+
+      <app-inventory-form></app-inventory-form>
+
+ </div>
+</div>
+<br>
+<br>
+<br>
+<!-- add loader icon -->
+<i *ngIf="isLoading" class="fa fa-cog fa-spin fa-3x"></i>
+<i *ngIf="isLoading" class="fa fa-cog fa-spin fa-3x"></i>
+<i *ngIf="isLoading" class="fa fa-cog fa-spin fa-3x"></i>
+<i *ngIf="isLoading" class="fa fa-cog fa-spin fa-3x"></i>
+<i *ngIf="isLoading" class="fa fa-cog fa-spin fa-3x"></i>
+<!-- add loader icon -->
+<div *ngIf="!isLoading">
+ <div class="btn-group inventory"  *ngFor="let part of parts ">
+  <button type="button"
+          class="btn btn-default dropdown-toggle"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false">
+   <div class="part">{{ part.name }}
+   </div>
+   <div class="qty">{{ part.quantity }}
+   </div>
+   <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#"><i class="glyphicon glyphicon-edit"></i>  Edit</a></li>
+    <li><a (click)="fbDeleteData(part)" href="../inventory" ><i class="glyphicon glyphicon-remove"></i>  Delete</a></li>
+    <li><a href="#"><i class="glyphicon glyphicon-alert"></i>   Alert!</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">remark</a></li>
+    <p>{{part.name}}</p>
+  </ul>
+ </div>
+</div>

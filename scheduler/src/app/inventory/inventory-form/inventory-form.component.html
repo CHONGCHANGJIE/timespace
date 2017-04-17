@@ -1,0 +1,23 @@
+
+    <div [hidden]="submitted" class="col-md-8 well" style= "width:100%">
+      <form (ngSubmit)="onSubmit()" [formGroup]="form">
+       <fieldset class="col-md-8 well">
+         <legend>
+          Part No.
+         </legend>
+
+           <input formControlName="name" placeholder="Part No.">
+</fieldset>
+<fieldset class="col-md-8 well">
+         <legend>
+            Quantity.
+         </legend>
+           <input formControlName="quantity" placeholder="Quantity">
+       </fieldset>
+
+       <button [disabled]="!form.valid" type="submit" class="btn btn-primary">
+           Submit
+       </button>
+      </form>
+
+    </div>

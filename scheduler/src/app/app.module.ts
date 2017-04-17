@@ -1,20 +1,54 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { NavComponent } from './nav/nav.component';
+import { HomeComponent } from './home/home.component';
+import { AppRoutes } from './app.routes';
+import { RouterModule} from '@angular/router';
+import { MachinesComponent } from './machines/machines.component';
+import { JobsComponent } from './jobs/jobs.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import 'rxjs/add/operator/map';
+import { InventoryFormComponent } from './inventory/inventory-form/inventory-form.component';
+import { AngularFireModule } from 'angularfire2';
+import { InventoryService } from './inventory/inventory.service'
+
+
+export const firebaseConfig = {
+
+ apiKey: "AIzaSyAPSzkVpwBj5qv6N_AYSUXLi1tTlNT27wI",
+ authDomain: "timespace-45075.firebaseapp.com",
+ databaseURL: "https://timespace-45075.firebaseio.com",
+ projectId: "timespace-45075",
+ storageBucket: "timespace-45075.appspot.com",
+ messagingSenderId: "15827274381"
+};
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavComponent,
+    HomeComponent,
+    MachinesComponent,
+    JobsComponent,
+    InventoryComponent,
+    InventoryFormComponent,
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    ReactiveFormsModule,
+    HttpModule,
+    RouterModule.forRoot([]),
+    AppRoutes,
+    AngularFireModule.initializeApp(firebaseConfig)
+
   ],
-  providers: [],
+  providers: [InventoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
