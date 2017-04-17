@@ -3,6 +3,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {InventoryService} from'../inventory.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -13,11 +14,9 @@ import {InventoryService} from'../inventory.service';
 
 })
 export class InventoryFormComponent implements OnInit {
-
   form: FormGroup
 
-
-  constructor(public fb: FormBuilder, private inventoryService: InventoryService) {
+  constructor(public fb: FormBuilder, private inventoryService: InventoryService, private router:Router) {
    this.form = this.fb.group({
     name: ['',Validators.required],
     quantity:['', Validators.required],
@@ -25,8 +24,8 @@ export class InventoryFormComponent implements OnInit {
   }
   onSubmit(){
 
-    this.inventoryService.fbPostData(this.form.value);
-
+   this.inventoryService.addParts(this.form.value)
+   this.router.navigate(['inventory']);
   }
   ngOnInit() {
   }

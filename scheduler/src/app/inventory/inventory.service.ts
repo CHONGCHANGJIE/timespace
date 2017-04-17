@@ -1,23 +1,33 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
 declare var firebase:any;
-
 
 
 @Injectable()
 export class InventoryService {
-part:any;
-  constructor(private http: Http) { }
-
-  getPart(){
-   return this.http.get('https://timespace-45075.firebaseio.com/inventory/part/.json').map(
-    (res) => res.json()
-   );
+   parts: FirebaseListObservable<any[]>;
+   part : FirebaseObjectObservable<any[]>;
+  constructor(private af: AngularFire){
 
   }
 
-  fbPostData(part){
-   firebase.database().ref('/inventory/part').push(part);
+  getParts(){
+     this.parts =  this.af.database.list('/inventory/part') as FirebaseListObservable<Part[]>
+     return this.parts;
   }
 
+
+  addParts(part){
+   console.log(part);
+   this.af.database.list('/inventory/part').push(part);
+     };
+
+  }
+
+interface Part{
+
+   $key?:string;
+   name?:string;
+   quantity?:string;
 }

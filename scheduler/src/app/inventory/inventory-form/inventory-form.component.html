@@ -1,12 +1,14 @@
 
     <div [hidden]="submitted" class="col-md-8 well" style= "width:100%">
       <form (ngSubmit)="onSubmit()" [formGroup]="form">
-       <fieldset>
+       <fieldset class="col-md-8 well">
          <legend>
           Part No.
          </legend>
-           <input formControlName="name" placeholder="Part No.">
 
+           <input formControlName="name" placeholder="Part No.">
+</fieldset>
+<fieldset class="col-md-8 well">
          <legend>
             Quantity.
          </legend>
@@ -19,4 +21,3 @@
       </form>
 
     </div>
-    <p>Form:{{form.value| json}}  </p>

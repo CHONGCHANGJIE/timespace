@@ -174,12 +174,12 @@ input[type="search"]::-webkit-search-decoration {
 }
 fieldset {
   border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
+  margin: 2px 2px;
+  padding: 1em 0.625em 0.75em;
 }
 legend {
   border: 0;
-  padding: 0;
+  padding: 0px;
 }
 textarea {
   overflow: auto;
@@ -1621,6 +1621,8 @@ pre code {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
+
+
 }
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
   float: left;
@@ -1953,7 +1955,7 @@ pre code {
     width: 75%;
   }
   .col-md-8 {
-    width: 95%;
+    width: 100%;
   }
   .col-md-7 {
     width: 58.33333333%;
@@ -2502,7 +2504,7 @@ legend {
   display: block;
   width: 100%;
   padding: 0;
-  margin-bottom: 22px;
+  margin-bottom: 0px;
   font-size: 24px;
   line-height: inherit;
   color: #333333;
@@ -3529,8 +3531,8 @@ tbody.collapse.in {
   display: none;
   float: left;
   min-width: 160px;
-  padding: 5px 0;
-  margin: 2px 0 0;
+  padding:  0;
+  margin:  0 0;
   list-style: none;
   font-size: 16px;
   text-align: left;
@@ -5822,11 +5824,11 @@ button.list-group-item-danger.active:focus {
   padding-bottom: 75%;
 }
 .well {
-  min-height: 20px;
-  padding: 19px;
-  margin-bottom: 20px;
+  min-height: 40px;
+  padding: 30px;
+  margin-bottom: 0px;
   background-color: #f7f7f7;
-  border: 1px solid #e5e5e5;
+  border: 2px solid #5bc0de;
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);

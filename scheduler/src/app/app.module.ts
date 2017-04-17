@@ -13,6 +13,19 @@ import { JobsComponent } from './jobs/jobs.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import 'rxjs/add/operator/map';
 import { InventoryFormComponent } from './inventory/inventory-form/inventory-form.component';
+import { AngularFireModule } from 'angularfire2';
+import { InventoryService } from './inventory/inventory.service'
+
+
+export const firebaseConfig = {
+
+ apiKey: "AIzaSyAPSzkVpwBj5qv6N_AYSUXLi1tTlNT27wI",
+ authDomain: "timespace-45075.firebaseapp.com",
+ databaseURL: "https://timespace-45075.firebaseio.com",
+ projectId: "timespace-45075",
+ storageBucket: "timespace-45075.appspot.com",
+ messagingSenderId: "15827274381"
+};
 
 @NgModule({
   declarations: [
@@ -31,10 +44,11 @@ import { InventoryFormComponent } from './inventory/inventory-form/inventory-for
     ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot([]),
-    AppRoutes
+    AppRoutes,
+    AngularFireModule.initializeApp(firebaseConfig)
 
   ],
-  providers: [],
+  providers: [InventoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
