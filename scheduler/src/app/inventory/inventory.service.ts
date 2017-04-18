@@ -8,6 +8,7 @@ declare var firebase:any;
 export class InventoryService {
    parts: FirebaseListObservable<any[]>;
    part : FirebaseObjectObservable<any[]>;
+   key : any;
   constructor(private af: AngularFire){
 
   }
@@ -21,9 +22,15 @@ export class InventoryService {
   addParts(part){
    console.log(part);
    this.af.database.list('/inventory/part').push(part);
-     };
+  };
+
+  deleteParts(part){
+
+   var key=part.$key;
+   this.af.database.list('/inventory/part').remove(key);
 
   }
+}
 
 interface Part{
 

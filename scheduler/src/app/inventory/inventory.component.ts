@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InventoryService} from './inventory.service';
 import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
+
 // declare var firebase:any;
 
 
@@ -8,19 +9,28 @@ import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'ang
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
   styleUrls: ['./inventory.component.css'],
-  providers: [InventoryService]
+
 })
 export class InventoryComponent implements OnInit {
+ part: any;
  parts :any ;
   // isLoading = true; //add loader icon
 
-  constructor(private inventoryService: InventoryService, private af: AngularFire){
+  constructor(private inventoryService: InventoryService,
+              private af: AngularFire,
+){
  }
   ngOnInit() {
 
     this.inventoryService.getParts().subscribe(parts =>{
          this.parts=parts;})
   }
+
+  onDeleteClick(part){
+
+   this.inventoryService.deleteParts(part);
+ }
+
 //
 
   // fbGetData(){
@@ -37,6 +47,7 @@ export class InventoryComponent implements OnInit {
   //  firebase.database().ref('/inventory/part').remove()
   //  .then(x=>console.log("SUCCESS")).catch(error=> console.log("ERROR",error))
   // }}
+
   fbDeleteData(part){
    if(confirm("Are you sure you want to delete "+ part.name + "?")){
     this.parts.remove()
