@@ -13,9 +13,11 @@ padding-bottom: 5px;
  background-color: green;
  border-radius: 5px;
  padding: 5px;
- font-family: fantasy;
+ font-family: cursive;
+ font-weight:bolder;
  opacity: 0.85;
  border-style: double;
+
 }
 
 
@@ -25,9 +27,11 @@ padding-bottom: 5px;
  background-color: yellow;
  border-radius: 5px;
  padding: 5px;
- font-family: fantasy;
+ font-family: cursive;
+ font-weight:bolder;
  opacity: 0.85;
  border-style: double;
+
 
 }
 
@@ -37,4 +41,17 @@ padding-bottom: 5px;
  background: transparent;
  border: 0;
  -webkit-appearance: none;
+}
+
+.clickable{
+ cursor: pointer;
+}
+
+#filter{
+ background-color: #dddddd;
+ padding: 1em 1em 1em;
+ font-family: cursive;
+ font-style: oblique;
+ font-weight: bolder;
+
 }

@@ -1,4 +1,4 @@
-
+<h1> Inventory
 <div class="dropdown" style= "float:right">
  <button class="btn btn-default dropdown-toggle"
          type="button"
@@ -7,15 +7,18 @@
          aria-haspopup="true" aria-expanded="true">
   <span class="fa fa-plus-square fa-2x"></span>
  </button>
-
  <div  id="add-part"
       class="dropdown-menu dropdown-menu-right"
       aria-labelledby="dropdownMenu1">
-
       <app-inventory-form></app-inventory-form>
-
  </div>
 </div>
+</h1>
+<form id="filter">
+ <label> Filter parts by name:</label>
+ <input type="text"  [ngModelOptions]="{standalone:true}" [(ngModel)]="term"/>
+</form>
+
 <br>
 <br>
 <br>
@@ -27,7 +30,7 @@
 <i *ngIf="isLoading" class="fa fa-cog fa-spin fa-3x"></i>
 <!-- add loader icon -->
 <div *ngIf="!isLoading">
- <div class="btn-group inventory"  *ngFor="let part of parts ">
+ <div class="btn-group inventory"  *ngFor="let part of parts | filter:term">
   <button type="button"
           class="btn btn-default dropdown-toggle"
           data-toggle="dropdown"
@@ -41,7 +44,7 @@
   </button>
   <ul class="dropdown-menu">
     <li><a href="#"><i class="glyphicon glyphicon-edit"></i>  Edit</a></li>
-    <li><a (click)="onDeleteClick(part)" ><i class="glyphicon glyphicon-remove"></i>  Delete</a></li>
+    <li><a routeLink="inventory" (click)="onDeleteClick(part)" class= "clickable"><i class="glyphicon glyphicon-remove"></i>  Delete</a></li>
     <li><a href="#"><i class="glyphicon glyphicon-alert"></i>   Alert!</a></li>
     <li role="separator" class="divider"></li>
     <li><a href="#">remark</a></li>

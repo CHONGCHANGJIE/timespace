@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InventoryService} from './inventory.service';
 import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
+import {FilterPipe} from '../filter.pipe';
 
 // declare var firebase:any;
 
@@ -9,6 +10,7 @@ import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'ang
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
   styleUrls: ['./inventory.component.css'],
+  
 
 })
 export class InventoryComponent implements OnInit {

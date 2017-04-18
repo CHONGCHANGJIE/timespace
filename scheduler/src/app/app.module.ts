@@ -14,7 +14,8 @@ import { InventoryComponent } from './inventory/inventory.component';
 import 'rxjs/add/operator/map';
 import { InventoryFormComponent } from './inventory/inventory-form/inventory-form.component';
 import { AngularFireModule } from 'angularfire2';
-import { InventoryService } from './inventory/inventory.service'
+import { InventoryService } from './inventory/inventory.service';
+import { FilterPipe } from './filter.pipe'
 
 
 export const firebaseConfig = {
@@ -36,6 +37,7 @@ export const firebaseConfig = {
     JobsComponent,
     InventoryComponent,
     InventoryFormComponent,
+    FilterPipe,
 
   ],
   imports: [
