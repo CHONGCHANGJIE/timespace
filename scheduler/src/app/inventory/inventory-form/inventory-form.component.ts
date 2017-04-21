@@ -14,16 +14,19 @@ import {Router} from '@angular/router';
 
 })
 export class InventoryFormComponent implements OnInit {
-  form: FormGroup
+  form: FormGroup;
+
 
   constructor(public fb: FormBuilder, private inventoryService: InventoryService, private router:Router) {
    this.form = this.fb.group({
     name: ['',Validators.required],
     quantity:['', Validators.required],
+
    });
+
+
   }
   onSubmit(){
-
    this.inventoryService.addParts(this.form.value)
    this.router.navigate(['inventory']);
   }

@@ -19,7 +19,7 @@ export class NavComponent implements OnInit {
    //collapse content
 
    login(){
-    this.af.auth.login();
+    this.af.auth.login().then(authState =>{ console.log("AFTER LOGIN",authState)});
     this.router.navigate(['']);
    }
 

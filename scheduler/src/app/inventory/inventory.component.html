@@ -36,19 +36,21 @@
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false">
-   <div class="part">{{ part.name }}
+   <div class="part">{{ part.$key }}
    </div>
    <div class="qty">{{ part.quantity }}
    </div>
    <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
+    <br>
     <li><a href="#"><i class="glyphicon glyphicon-edit"></i>  Edit</a></li>
     <li><a routeLink="inventory" (click)="onDeleteClick(part)" class= "clickable"><i class="glyphicon glyphicon-remove"></i>  Delete</a></li>
     <li><a href="#"><i class="glyphicon glyphicon-alert"></i>   Alert!</a></li>
     <li role="separator" class="divider"></li>
-    <li><a href="#">remark</a></li>
-    <p>{{part.name}}</p>
+    <br>
+
+
   </ul>
  </div>
 </div>

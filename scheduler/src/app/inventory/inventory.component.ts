@@ -10,7 +10,7 @@ import {FilterPipe} from '../filter.pipe';
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
   styleUrls: ['./inventory.component.css'],
-  
+
 
 })
 export class InventoryComponent implements OnInit {
@@ -29,32 +29,8 @@ export class InventoryComponent implements OnInit {
   }
 
   onDeleteClick(part){
-
+ if(confirm("Are you sure you want to delete "+ part.name + "?")){
    this.inventoryService.deleteParts(part);
- }
-
-//
-
-  // fbGetData(){
-  //  firebase.database().ref('/inventory/part').on(
-  //   'child_added',
-  //
-  //   (snapshot) =>{this.parts.push(snapshot.val())},
-  //
-  //  )
-  // }
-//
-  // fbDeleteData(part){
-  //  if(confirm("Are you sure you want to delete "+ part.name + "?")){
-  //  firebase.database().ref('/inventory/part').remove()
-  //  .then(x=>console.log("SUCCESS")).catch(error=> console.log("ERROR",error))
-  // }}
-
-  fbDeleteData(part){
-   if(confirm("Are you sure you want to delete "+ part.name + "?")){
-    this.parts.remove()
-    .then(x=>console.log("SUCCESS")).catch(error=> console.log("ERROR",error))
-   }}
-
+ }}
 
 }
