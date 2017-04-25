@@ -7,6 +7,7 @@ import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'ang
 @Injectable()
 export class InventoryService {
    parts: FirebaseListObservable<any[]>;
+   part: FirebaseObjectObservable<any[]>;
 
 
   constructor(private af: AngularFire){
@@ -34,6 +35,11 @@ export class InventoryService {
    this.af.database.list('/inventory/part').remove(key).then(x=>console.log("SUCCESS")).catch(error=> console.log("ERROR",error));
 
   }
+
+  getPartDetails(id){
+   this.part = this.af.database.object('/inventory/part/'+id) as FirebaseObjectObservable<Part>
+   return this.part;
+  }
 }
 
 interface Part{
@@ -41,3 +47,4 @@ interface Part{
    $key?:string;
    quantity?:string;
 }
+//

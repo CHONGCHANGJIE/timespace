@@ -1,0 +1,51 @@
+
+<div class="page-header">
+ <h1>PART NUMBER:  <div><small>{{part.name | uppercase }}</small></div></h1>
+</div>
+<form  [formGroup]="form">
+  <div class="form-inline">
+    <label for="name">PartName:</label>
+    <input [(ngModel)]="part.name" formControlName="name" type="text" class="form-control" id="name" placeholder="Enter PartName">
+
+    <label for="quantity">Quantity:</label>
+
+      <input [(ngModel)]="part.quantity" formControlName="quantity" type="number" class="form-control" id="quantity" placeholder="Enter quantity">
+
+  </div>
+
+  <div class="form-group">
+        <div class="checkbox">
+          <label><input type="checkbox" (change)= onchange()> Safety stock required</label>
+        </div>
+  </div>
+  <div *ngIf="required" class="form-group">
+    <label for="quantity">SafetyStock:</label>
+      <input type="number" class="form-control" id="quantity" placeholder="Enter quantity">
+   </div>
+
+
+   <div class="form-group">
+         <div class="checkbox">
+           <label><input type="checkbox" (change)= showprocesses()>Show Processes</label>
+         </div>
+   </div>
+
+   <div *ngIf="showprocess" formArrayName="processes" class="form-group">
+     <div *ngFor="let process of processes.controls; let i=index" [formGroupName]="i" class="process">
+     <label for="Process">Processes</label>
+     <input type="text" class="form-control" id="name" placeholder="Enter ProcessName">
+
+     <label for="Department">Department:</label>
+
+       <input type="text" class="form-control" id="quantity" placeholder="Enter department">
+     <label for="cycletime">Cycletime:</label>
+
+       <input type="text" class="form-control" id="quantity" placeholder="Enter cycletime (minutes)">
+
+    </div>
+         <button class="btn btn-primary btn-lg" (click)="add()">ADD PROCESS</button>
+   </div>
+
+      <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+
+</form>

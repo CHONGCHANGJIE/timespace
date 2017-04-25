@@ -17,6 +17,7 @@ import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { InventoryService } from './inventory/inventory.service';
 import { FilterPipe } from './filter.pipe'
 import {FlashMessagesModule} from 'angular2-flash-messages';
+import { PartDetailComponent } from './inventory/part-detail/part-detail.component';
 
 
 export const firebaseConfig = {
@@ -44,6 +45,7 @@ const firebaseAuthConfig= {
     InventoryComponent,
     InventoryFormComponent,
     FilterPipe,
+    PartDetailComponent,
 
   ],
   imports: [
