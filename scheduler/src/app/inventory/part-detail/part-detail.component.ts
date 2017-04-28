@@ -13,7 +13,6 @@ export class PartDetailComponent implements OnInit {
   id:any;
   part: any;
   required= false;
-  showprocess= false;
   form: FormGroup;
   processes: FormArray;
 
@@ -27,6 +26,9 @@ constructor(
    this.form = this.fb.group({
     name: ['',Validators.required],
     quantity:['', Validators.required],
+    safetyStockRequired:false,
+    safetyStockQuantity:['', Validators.required],
+    showprocess: false,
     processes: this.buildArray()
      });
   }
@@ -41,17 +43,13 @@ constructor(
 
   }
 
-  onchange(){
-   this.required = !this.required ;
-
-  }
-
-  showprocesses(){
-   this.showprocess = !this.showprocess;
-  }
-
   add(){
    this.processes.push(this.buildGroup());
+  }
+
+  deleteProcess(i){
+
+   this.processes.removeAt(i);
   }
 
   buildArray(): FormArray{

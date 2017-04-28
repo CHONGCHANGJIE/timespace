@@ -15,37 +15,39 @@
 
   <div class="form-group">
         <div class="checkbox">
-          <label><input type="checkbox" (change)= onchange()> Safety stock required</label>
+          <label><input type="checkbox" formControlName="safetyStockRequired" [(ngModel)]="part.safetyStockRequired"> Safety stock required</label>
         </div>
   </div>
-  <div *ngIf="required" class="form-group">
+  <div *ngIf="part.safetyStockRequired" class="form-group">
     <label for="quantity">SafetyStock:</label>
-      <input type="number" class="form-control" id="quantity" placeholder="Enter quantity">
+      <input type="number" class="form-control" [(ngModel)]="part.safetyStockQuantity" formControlName="safetyStockQuantity"  placeholder="Enter quantity">
    </div>
 
 
    <div class="form-group">
          <div class="checkbox">
-           <label><input type="checkbox" (change)= showprocesses()>Show Processes</label>
+           <label><input type="checkbox" formControlName="showprocess" [(ngModel)]="part.showprocess">Show Processes</label>
          </div>
+
    </div>
 
-   <div *ngIf="showprocess" formArrayName="processes" class="form-group">
+   <div *ngIf="part.showprocess" formArrayName="processes" class="form-group">
      <div *ngFor="let process of processes.controls; let i=index" [formGroupName]="i" class="process">
-     <label for="Process">Processes</label>
-     <input type="text" class="form-control" id="name" placeholder="Enter ProcessName">
+      <h4> Process {{i+1}}</h4><br>
+        <label for="Machine">Machine</label>
+        <input type="text" class="form-control" formControlName="machine" placeholder="Enter machineName">
 
-     <label for="Department">Department:</label>
+        <label for="Department">Department:</label>
+        <input type="text" class="form-control" formControlName="department"  placeholder="Enter department">
 
-       <input type="text" class="form-control" id="quantity" placeholder="Enter department">
-     <label for="cycletime">Cycletime:</label>
-
-       <input type="text" class="form-control" id="quantity" placeholder="Enter cycletime (minutes)">
+        <label for="Cycletime">Cycletime:</label>
+        <input type="number" class="form-control" formControlName="cycletime" placeholder="Enter cycletime (minutes)">
+        <button class="btn btn-default " (click)="deleteProcess()">Delete</button>
 
     </div>
          <button class="btn btn-primary btn-lg" (click)="add()">ADD PROCESS</button>
    </div>
 
       <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-
+     <div>value1 = {{form.value|json}}</div><br/>
 </form>

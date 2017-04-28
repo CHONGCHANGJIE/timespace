@@ -1,19 +1,25 @@
 
     <div [hidden]="submitted" class="col-md-8 well" style= "width:100%">
       <form (ngSubmit)="onSubmit()" [formGroup]="form">
-       <fieldset class="col-md-8 well">
+       <fieldset class="col-md-15 well">
          <legend>
           Part No.
          </legend>
 
            <input formControlName="name" placeholder="Part No.">
-</fieldset>
-<fieldset class="col-md-8 well" >
+           <div
+             *ngIf="!form.controls['name'].valid && form.controls['name'].touched "
+             class="alert alert-danger">Name is required.</div>
+        </fieldset>
+        <fieldset class="col-md-15 well" >
          <legend>
             Quantity.
          </legend>
            <input formControlName="quantity" type="number" placeholder="Quantity">
-       </fieldset>
+           <div
+             *ngIf="!form.controls['quantity'].valid && form.controls['quantity'].touched "
+             class="alert alert-danger">QTY is required.</div>
+        </fieldset>
 
        <button [disabled]="!form.valid" type="submit" class="btn btn-primary">
            Submit
